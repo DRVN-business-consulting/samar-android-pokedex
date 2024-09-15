@@ -1,6 +1,8 @@
 package dev.samar.pokedex;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,15 @@ public class Description extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description);
+        ImageView backArrow = findViewById(R.id.imageView2);
+
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Description.this, MyList.class);
+                finish();
+            }
+        });
 
         // Initialize the Pokémon list (can come from a database or API in real app)
         initializePokemonList();
